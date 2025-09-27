@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Librarian Dashboard</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-brand">
+                <h1>Librarian Dashboard</h1>
+            </div>
+            <div class="nav-links">
+                <span>Welcome, Librarian!</span>
+                <a href="index.html" class="btn-secondary">Student View</a>
+                <button onclick="logout()" class="btn-logout">Logout</button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="dashboard-actions">
+            <button onclick="openAddBookModal()" class="btn-primary">+ Add New Book</button>
+            <div class="stats">
+                <span>Total Books: <span id="totalBooks">0</span></span>
+                <span>Available: <span id="availableBooks">0</span></span>
+            </div>
+        </section>
+
+        <section class="books-management">
+            <h3>Book Management</h3>
+            <div class="books-grid" id="librarianBooksContainer">
+                <!-- Books with edit/delete options -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Add/Edit Book Modal -->
+    <div id="bookFormModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeBookFormModal()">&times;</span>
+            <h3 id="modalTitle">Add New Book</h3>
+            <form id="bookForm">
+                <input type="hidden" id="bookId">
+                <div class="form-group">
+                    <label for="title">Title:</label>
+                    <input type="text" id="title" required>
+                </div>
+                <div class="form-group">
+                    <label for="author">Author:</label>
+                    <input type="text" id="author" required>
+                </div>
+                <div class="form-group">
+                    <label for="isbn">ISBN:</label>
+                    <input type="text" id="isbn" required>
+                </div>
+                <div class="form-group">
+                    <label for="genre">Genre:</label>
+                    <select id="genre" required>
+                        <option value="Fiction">Fiction</option>
+                        <option value="Science">Science</option>
+                        <option value="History">History</option>
+                        <option value="Biography">Biography</option>
+                        <option value="Technology">Technology</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="quantity">Quantity:</label>
+                    <input type="number" id="quantity" min="1" required>
+                </div>
+                <button type="submit" class="btn-primary">Save Book</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="scripts/main.js"></script>
+    <script src="scripts/librarian.js"></script>
+</body>
+</html>
