@@ -15,28 +15,25 @@
             <div class="nav-links">
                 <span>Welcome, Librarian!</span>
                 <a href="index.html" class="btn-secondary">Student View</a>
-                <button onclick="logout()" class="btn-logout">Logout</button>
+                <button type="button" onclick="logout()" class="btn-logout">Logout</button>
             </div>
         </nav>
     </header>
-
     <main class="container">
         <section class="dashboard-actions">
-            <button onclick="openAddBookModal()" class="btn-primary">+ Add New Book</button>
+            <button type="button" onclick="openAddBookModal()" class="btn-primary">+ Add New Book</button>
             <div class="stats">
                 <span>Total Books: <span id="totalBooks">0</span></span>
                 <span>Available: <span id="availableBooks">0</span></span>
             </div>
         </section>
-
         <section class="books-management">
             <h3>Book Management</h3>
             <div class="books-grid" id="librarianBooksContainer">
-                <!-- Books with edit/delete options -->
+                <!-- Books with edit/delete options will appear here -->
             </div>
         </section>
     </main>
-
     <!-- Add/Edit Book Modal -->
     <div id="bookFormModal" class="modal">
         <div class="modal-content">
@@ -74,7 +71,6 @@
             </form>
         </div>
     </div>
-
     <script src="scripts/main.js"></script>
     <script src="scripts/librarian.js"></script>
 </body>

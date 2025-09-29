@@ -5,31 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>School Library - Student Portal</title>
     <link rel="stylesheet" href="styles/style.css">
-    <script src="scripts/main.js" defer></script>
-    <script src="scripts/student.js" defer></script>
+    <script src="script/main.js" defer></script>
+    <script src="script/student.js" defer></script>
 </head>
 <body>
     <header>
         <nav>
             <div class="nav-brand">
-                <h1></h1> School Library</h1>
+                <h1>School Library</h1>
             </div>
             <div class="nav-links">
                 <a href="login.html" class="btn-secondary">Librarian Login</a>
             </div>
         </nav>
     </header>
-
     <main class="container">
         <section class="hero">
             <h2>Welcome to Our Digital Library</h2>
             <p>Search and explore our collection of books</p>
         </section>
-
         <section class="search-section">
             <div class="search-bar">
                 <input type="text" id="searchInput" placeholder="Search by title, author, or genre...">
-                <button onclick="searchBooks()">🔍 Search</button>
+                <button onclick="searchBooks()">Search</button>
             </div>
             <div class="filters">
                 <select id="genreFilter" onchange="filterBooks()">
@@ -45,12 +43,10 @@
                 </select>
             </div>
         </section>
-
         <section class="books-grid" id="booksContainer">
             <!-- Books will be dynamically loaded here -->
         </section>
     </main>
-
     <!-- Book Details Modal -->
     <div id="bookModal" class="modal">
         <div class="modal-content">
@@ -60,6 +56,5 @@
             </div>
         </div>
     </div>
-
 </body>
 </html>

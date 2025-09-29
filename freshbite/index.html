@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Café Management System</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="app logic/auth.js" defer></script>
+    <script src="function/menu.js" defer></script>
+    <script src="management/order.js" defer></script>
+    <script src="js/app.js" defer></script>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <div class="container">
+            <h1>Café Management System</h1>
+            <div class="nav-links">
+                <a href="#" id="customer-link">Customer Menu</a>
+                <a href="#" id="staff-link">Staff Login</a>
+                <a href="#" id="logout-link" style="display: none;">Logout</a>
+            </div>
+        </div>
+    </div>
+    <!-- Main Content Container -->
+    <div class="container">
+        <!-- Login Page -->
+        <div id="login-page" class="login-container">
+            <div class="card">
+                <h2>Staff Login</h2>
+                <div id="login-error" class="error"></div>
+                <form id="login-form" class="login-form">
+                    <input type="text" id="username" placeholder="Username" required>
+                    <input type="password" id="password" placeholder="Password" required>
+                    <button type="submit">Login</button>
+                </form>
+                <p style="margin-top: 15px; text-align: center;">
+                    <strong>Demo Credentials:</strong><br>
+                    Username: admin<br>
+                    Password: cafe123
+                </p>
+            </div>
+        </div>
+        <!-- Staff Dashboard -->
+        <div id="staff-dashboard" style="display: none;">
+            <h2>Staff Dashboard</h2>
+            <div class="dashboard-grid">
+                <div class="card">
+                    <h3>Add New Menu Item</h3>
+                    <div id="add-success" class="success"></div>
+                    <form id="add-item-form">
+                        <input type="text" id="item-name" placeholder="Item Name" required>
+                        <input type="number" id="item-price" placeholder="Price" step="0.01" min="0" required>
+                        <textarea id="item-description" placeholder="Description" rows="3"></textarea>
+                        <select id="item-category" required>
+                            <option value="">Select Category</option>
+                            <option value="coffee">Coffee</option>
+                            <option value="tea">Tea</option>
+                            <option value="pastry">Pastry</option>
+                            <option value="sandwich">Sandwich</option>
+                        </select>
+                        <button type="submit">Add Item</button>
+                    </form>
+                </div>
+                <div class="card">
+                    <h3>Menu Items</h3>
+                    <div id="menu-items" class="menu-items">
+                        <!-- Menu items will be dynamically added here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Customer Menu -->
+        <div id="customer-menu" style="display: none;">
+            <h2>Our Menu</h2>
+            <div class="customer-menu">
+                <div>
+                    <div class="menu-categories">
+                        <button class="category-btn active" data-category="all">All Items</button>
+                        <button class="category-btn" data-category="coffee">Coffee</button>
+                        <button class="category-btn" data-category="tea">Tea</button>
+                        <button class="category-btn" data-category="pastry">Pastry</button>
+                        <button class="category-btn" data-category="sandwich">Sandwich</button>
+                    </div>
+                    <div id="customer-menu-items" class="menu-items">
+                        <!-- Customer menu items will be dynamically added here -->
+                    </div>
+                </div>
+                <div class="card order-summary">
+                    <h3>Your Order</h3>
+                    <div id="order-items">
+                        <div class="empty-order">Your order is empty</div>
+                    </div>
+                    <div id="order-total" class="order-total" style="display: none;">
+                        <span>Total:</span>
+                        <span id="total-amount">₦0.00</span>
+                    </div>
+                    <button id="place-order-btn" style="width: 100%; margin-top: 15px; display: none;">Place Order</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

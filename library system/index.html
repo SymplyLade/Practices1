@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management System</title>
+    <link rel="stylesheet" href="css/style.css">
+     <script src="js/storage.js" defer></script>
+    <script src="js/auth.js" defer></script>
+    <script src="js/books.js" defer></script>
+    <script src="js/app.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">Library<span>System</span></div>
+                <nav>
+                    <ul>
+                        <li><a href="#" class="nav-link" data-page="home">Home</a></li>
+                        <li><a href="#" class="nav-link" data-page="books">Books</a></li>
+                        <li id="librarian-nav" class="hidden"><a href="#" class="nav-link" data-page="dashboard">Dashboard</a></li>
+                        <li id="login-nav"><a href="#" class="nav-link" data-page="login">Login</a></li>
+                        <li id="logout-nav" class="hidden"><a href="#" id="logout-btn">Logout</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <!-- Home Page -->
+            <div id="home" class="page active">
+                <h1 class="page-title">Welcome to Library System</h1>
+                <div class="card">
+                    <h2>About Our Library</h2>
+                    <p>Our library management system provides easy access to our collection of books. Students can browse and search for books, while librarians have additional privileges to manage the collection.</p>
+                    <h3>Features:</h3>
+                    <ul>
+                        <li>Browse and search books (All users)</li>
+                        <li>View book details and availability</li>
+                        <li>Add, update, and delete books (Librarians only)</li>
+                        <li>Manage book status (Available/Checked Out)</li>
+                    </ul>
+                    <div style="margin-top: 1.5rem;">
+                        <a href="#" class="btn nav-link" data-page="books">Browse Books</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Books Page -->
+            <div id="books" class="page">
+                <h1 class="page-title">Book Collection</h1>
+                <div class="search-container">
+                    <input type="text" id="search-input" placeholder="Search by title or author...">
+                </div>
+                <div class="card">
+                    <table id="books-table">
+                        <thead>
+                            <tr>
+                                <th>Title</th>
+                                <th>Author</th>
+                                <th>Year</th>
+                                <th>Status</th>
+                                <th id="actions-header" class="hidden">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="books-list">
+                            <!-- Books will be populated here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- Login Page -->
+            <div id="login" class="page">
+                <h1 class="page-title">Librarian Login</h1>
+                <div class="card login-form">
+                    <div id="login-error" class="alert alert-danger hidden">
+                        Invalid credentials. Please try again.
+                    </div>
+                    <form id="login-form">
+                        <div class="form-group">
+                            <label for="username">Username</label>
+                            <input type="text" id="username" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" id="password" required>
+                        </div>
+                        <button type="submit" class="btn">Login</button>
+                    </form>
+                </div>
+            </div>
+            <!-- Dashboard Page -->
+            <div id="dashboard" class="page">
+                <h1 class="page-title">Librarian Dashboard</h1>
+                <div class="card">
+                    <h2>Add New Book</h2>
+                    <form id="add-book-form">
+                        <div class="form-group">
+                            <label for="title">Title</label>
+                            <input type="text" id="title" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="author">Author</label>
+                            <input type="text" id="author" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="year">Year</label>
+                            <input type="number" id="year" min="1000" max="2023" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="availability">Availability</label>
+                            <select id="availability" required>
+                                <option value="Available">Available</option>
+                                <option value="Checked Out">Checked Out</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-success">Add Book</button>
+                    </form>
+                </div>
+                <div class="card">
+                    <h2>Manage Books</h2>
+                    <table id="manage-books-table">
+                        <thead>
+                            <tr>
+                                <th>Title</th>
+                                <th>Author</th>
+                                <th>Year</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="manage-books-list">
+                            <!-- Books for management will be populated here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Library Management System. All rights reserved.</p>
+        </div>
+    </footer>
+   
+</body>
+</html>
+

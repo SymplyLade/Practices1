@@ -1,5 +1,4 @@
 // Shared functions and data management
-
 // Sample initial books data
 const initialBooks = [
     {
@@ -30,80 +29,70 @@ const initialBooks = [
         available: 4
     }
 ];
-
 // Initialize books in localStorage
 function initializeBooks() {
     if (!localStorage.getItem('libraryBooks')) {
         localStorage.setItem('libraryBooks', JSON.stringify(initialBooks));
     }
 }
-
 // Get all books from localStorage
 function getBooks() {
     initializeBooks();
     return JSON.parse(localStorage.getItem('libraryBooks'));
 }
-
 // Save books to localStorage
 function saveBooks(books) {
     localStorage.setItem('libraryBooks', JSON.stringify(books));
 }
-
 // Generate unique ID for new books
 function generateId() {
     const books = getBooks();
     return books.length > 0 ? Math.max(...books.map(book => book.id)) + 1 : 1;
 }
-
 // Check if user is logged in as librarian
 function isLibrarianLoggedIn() {
     return localStorage.getItem('librarianLoggedIn') === 'true';
 }
-
 // Format book status
 function getStatusText(book) {
     return book.available > 0 ? 'Available' : 'Borrowed';
 }
-
 // Search and filter functions
 function searchBooks() {
-    const searchTerm = document.getElementById('searchInput').value.toLowerCase();
-    const genreFilter = document.getElementById('genreFilter').value;
-    const availabilityFilter = document.getElementById('availabilityFilter').value;
-    
+    const searchTerm = document.getElementById('searchInput')?.value.toLowerCase() || "";
+    const genreFilter = document.getElementById('genreFilter')?.value.toLowerCase() || "";
+    const availabilityFilter = document.getElementById('availabilityFilter')?.value || "";
     const books = getBooks();
     const filteredBooks = books.filter(book => {
-        const matchesSearch = book.title.toLowerCase().includes(searchTerm) ||
-                            book.author.toLowerCase().includes(searchTerm) ||
-                            book.genre.toLowerCase().includes(searchTerm);
-        
-        const matchesGenre = !genreFilter || book.genre === genreFilter;
-        const matchesAvailability = !availabilityFilter || 
-                                  (availabilityFilter === 'available' && book.available > 0);
-        
+        const matchesSearch =
+            book.title.toLowerCase().includes(searchTerm) ||
+            book.author.toLowerCase().includes(searchTerm) ||
+            book.genre.toLowerCase().includes(searchTerm);
+        const matchesGenre = !genreFilter || book.genre.toLowerCase() === genreFilter;
+        const matchesAvailability = !availabilityFilter ||
+            (availabilityFilter === 'available' && book.available > 0) ||
+            (availabilityFilter === 'borrowed' && book.available === 0);
         return matchesSearch && matchesGenre && matchesAvailability;
     });
-    
-    displayBooks(filteredBooks);
+    if (typeof displayBooks === "function") {
+        displayBooks(filteredBooks); // student-side display
+    }
 }
-
 function filterBooks() {
     searchBooks(); // Reuse search function for filtering
 }
-
 // Modal functions
 function openModal(modalId) {
-    document.getElementById(modalId).style.display = 'block';
+    const modal = document.getElementById(modalId);
+    if (modal) modal.style.display = 'block';
 }
-
 function closeModal(modalId) {
-    document.getElementById(modalId).style.display = 'none';
+    const modal = document.getElementById(modalId);
+    if (modal) modal.style.display = 'none';
 }
-
 // Initialize the application
 document.addEventListener('DOMContentLoaded', function() {
     initializeBooks();
-    
     // Close modal when clicking outside
     const modals = document.querySelectorAll('.modal');
     modals.forEach(modal => {
