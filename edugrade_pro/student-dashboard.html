@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Dashboard - EduGrade Pro</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="sidebar">
+    <h2>My Dashboard</h2>
+    <ul>
+      <li class="active">Dashboard</li>
+      <li>My Courses</li>
+      <li>Settings</li>
+      <li><button id="logoutBtn">Logout</button></li>
+    </ul>
+  </div>
+  <div class="main">
+    <h1>Welcome, <span id="studentName">Student</span></h1>
+    <div class="stats">
+      <div class="card">Overall Grade Average: <span id="overallGrade">-</span></div>
+      <div class="card">Courses Enrolled: <span id="coursesEnrolled">0</span></div>
+    </div>
+    <h2>My Grades</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Course</th>
+          <th>Grade</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody id="gradesTable"></tbody>
+    </table>
+  </div>
+  <script src="js/script.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+

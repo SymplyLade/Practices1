@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teacher Dashboard - EduGrade Pro</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="sidebar">
+    <h2>EduGrade Pro</h2>
+    <ul>
+      <li class="active">Dashboard</li>
+      <li>Students</li>
+      <li>Gradebook</li>
+      <li>Reports</li>
+      <li>Settings</li>
+      <li><button id="logoutBtn">Logout</button></li>
+    </ul>
+  </div>
+  <div class="main">
+    <h1>Teacher Dashboard</h1>
+    <div class="stats">
+      <div class="card">Total Students: <span id="totalStudents">0</span></div>
+      <div class="card">Active Classes: <span id="activeClasses">0</span></div>
+      <div class="card">Average Grade: <span id="averageGrade">-</span></div>
+      <div class="card">Assignments Due: <span id="assignmentsDue">0</span></div>
+    </div>
+    <div class="table-header">
+      <h2>Student List</h2>
+      <button id="addStudentBtn">+ Add New Student</button>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Class</th>
+          <th>Grade</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody id="studentTable"></tbody>
+    </table>
+  </div>
+  <!-- ADD / EDIT STUDENT MODAL -->
+  <div id="studentModal" class="modal">
+    <div class="modal-content">
+      <h2 id="modalTitle">Add Student</h2>
+      <form id="studentForm">
+        <input type="text" id="studentName" placeholder="Full Name" required>
+        <input type="text" id="studentClass" placeholder="Class (e.g., ND1)" required>
+        <select id="studentGrade">
+          <option value="A">A</option>
+          <option value="B">B</option>
+          <option value="C">C</option>
+          <option value="D">D</option>
+          <option value="F">F</option>
+        </select>
+        <button type="submit">Save</button>
+        <button type="button" id="closeModal">Cancel</button>
+      </form>
+    </div>
+  </div>
+  <script src="js/script.js"></script>
+</body>
+</html>
