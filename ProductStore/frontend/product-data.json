@@ -1,0 +1,26 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Frontal",
+      "price": "₦ 30,000",
+      "isAvailable": true,
+      "coverImage": "/images/1dbde3a4-508d-448e-8a01-fc121ede99dc.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Curly Hair",
+      "price": "₦ 40,000",
+      "isAvailable": true,
+      "coverImage": "/images/0780ddda-dfc2-43cd-8a44-1f6a5f1c0a69.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Bob",
+      "price": "₦ 67,000",
+      "isAvailable": true,
+      "coverImage": "/images/1984.jpeg"
+    }
+
+  ]
+}
